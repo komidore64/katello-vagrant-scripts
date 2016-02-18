@@ -10,9 +10,11 @@ PACKAGES=(
 	git
 	tig
 	tmux
-	mosh
+	tito
 	koji
+	git-annex
 	rpmdevtools
+	libcurl-devel
 	ack
 )
 

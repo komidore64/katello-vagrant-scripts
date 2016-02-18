@@ -8,6 +8,7 @@ function main() {
 		git clone https://github.com/theforeman/hammer-cli.git -o upstream
 		git clone https://github.com/theforeman/hammer-cli-foreman.git -o upstream
 		git clone http://github.com/katello/hammer-cli-katello.git -o upstream
+		git clone http://github.com/katello/hammer-cli-csv.git -o upstream
 
 		# hammer configs
 		mkdir -p \$HOME/.hammer/cli.modules.d
@@ -51,6 +52,11 @@ function main() {
 			  :password: 'changeme'
 		END_FOREMAN_YML
 
+		cat > \$HOME/.hammer/cli.modules.d/csv.yml <<-END_CSV_YML
+			:csv:
+			  :enable_module: true
+		END_CSV_YML
+
 		cat > \$HOME/.hammer/cli.modules.d/katello.yml <<-END_KATELLO_YML
 			:katello:
 			  :enable_module: true
@@ -65,6 +71,11 @@ function main() {
 		git remote add fork git@github.com:komidore64/hammer-cli-foreman.git
 		git fetch --all --prune
 		popd # hammer-cli-foreman
+
+		pushd hammer-cli-csv
+		git remote add fork git@github.com:komidore64/hammer-cli-csv.git
+		git fetch --all --prune
+		popd # hammer-cli-csv
 
 		pushd hammer-cli-katello
 		git remote add fork git@github.com:komidore64/hammer-cli-katello.git

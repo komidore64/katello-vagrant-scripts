@@ -1,2 +1,5 @@
 ssh/id_rsa
 ssh/id_rsa.pub
+koji/katello-ca.cert
+koji/katello.cert
+koji/katello-config

@@ -8,7 +8,11 @@ function main () {
 
 		echo "copying ssh keys"
 		mkdir \$HOME/.ssh
-		cp -R /vagrant/scripts/ssh/id_rsa{,.pub} \$HOME/.ssh/
+		cp /vagrant/scripts/ssh/id_rsa{,.pub} \$HOME/.ssh/
+
+		echo "copying koji certs and config"
+		mkdir \$HOME/.koji
+		cp /vagrant/scripts/koji/* \$HOME/.koji/
 
 		# add github's RSA fingerprint to my known hosts
 		ssh-keyscan -H github.com >> ~/.ssh/known_hosts
