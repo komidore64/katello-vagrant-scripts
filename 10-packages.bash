@@ -6,6 +6,7 @@ PKG_GROUPS=(
 )
 
 PACKAGES=(
+	bc
 	vim
 	git
 	tig
