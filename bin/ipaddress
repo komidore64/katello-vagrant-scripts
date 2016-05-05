@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+ip addr | grep -w inet | grep 192 | awk '{print $2}' | cut -d/ -f1

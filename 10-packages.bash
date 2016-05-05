@@ -7,6 +7,7 @@ PKG_GROUPS=(
 
 PACKAGES=(
 	bc
+	time
 	vim
 	git
 	tig
