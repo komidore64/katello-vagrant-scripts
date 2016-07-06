@@ -17,6 +17,7 @@ PACKAGES=(
 	git-annex
 	rpmdevtools
 	libcurl-devel
+	scl-utils-build
 	ack
 )
 
