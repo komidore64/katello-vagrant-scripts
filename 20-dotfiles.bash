@@ -24,6 +24,11 @@ function main () {
 		mkdir -p \$HOME/.rvm/gemsets/ruby/2.3.0
 		ln -sf \$HOME/dotfiles/rvm/gemsets/ruby/2.1.2/global.gems \$HOME/.rvm/gemsets/ruby/2.3.0/
 
+		if ! which rvm > /dev/null 2>&1; then
+			gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+			\\curl -sSL https://get.rvm.io | bash -s stable
+		fi
+
 		# still says 'rvm is not a function'
 		source \$HOME/.rvm/bin/rvm
 
