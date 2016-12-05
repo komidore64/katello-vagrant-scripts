@@ -14,11 +14,14 @@ PACKAGES=(
 	tmux
 	tito
 	koji
+	mock
 	git-annex
 	rpmdevtools
 	libcurl-devel
 	scl-utils-build
 	ack
+	mysql-devel
+	npm
 )
 
 function main () {

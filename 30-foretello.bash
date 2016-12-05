@@ -26,7 +26,11 @@ function main() {
 
 		bundle install
 
-		rake katello:reset && rake katello:reindex && rake apipie:cache
+		npm install
+
+		rake katello:reset && rake apipie:cache && rake webpack:compile
+
+		echo ":webpack_dev_server: false # added by vagrant startup scripts" >> config/settings.yaml
 
 		popd # foreman
 
