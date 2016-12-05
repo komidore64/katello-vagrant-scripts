@@ -2,6 +2,8 @@
 # vim: noet
 
 function main() {
+    usermod -aG mock vagrant
+
 	su -l vagrant <<-END_VAGRANT_USER
 		cd # confirm where we are
 		rvm 2.3.0@global do gem install gem-compare

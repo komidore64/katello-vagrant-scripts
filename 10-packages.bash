@@ -30,7 +30,7 @@ function main () {
 	sudo yum update -y
 
 	for i in $( seq 0 $(( ${#PKG_GROUPS[@]} - 1 )) ); do
-		sudo yum groupinstall -y ${PKG_GROUPS[${i}]}
+		sudo yum groupinstall -y "${PKG_GROUPS[${i}]}"
 	done
 
 	for i in $( seq 0 $(( ${#PACKAGES[@]} - 1 )) ); do
@@ -38,5 +38,4 @@ function main () {
 	done
 }
 
-set -x
 main
