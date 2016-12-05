@@ -9,6 +9,7 @@ function main() {
 		git clone https://github.com/katello/katello-packaging.git -o upstream
 		pushd katello-packaging
 		git remote add fork git@github.com:komidore64/katello-packaging.git
+		git branch --set-upstream-to upstream/master
 		git fetch --all --prune
 
 		git annex init

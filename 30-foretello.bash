@@ -7,8 +7,8 @@ function main() {
 
 		pushd foreman
 
-		git remote rename origin upstream
-		git remote add fork git@github.com:komidore64/foreman.git
+		git remote set-url fork git@github.com:komidore64/foreman.git
+		git branch --set-upstream-to upstream/develop
 		git fetch --all --prune
 
 		rvm --force gemset empty
@@ -36,15 +36,14 @@ function main() {
 
 		pushd katello
 
-		git remote rename origin upstream
-		git remote add fork git@github.com:komidore64/katello.git
+		git remote set-url fork git@github.com:komidore64/katello.git
+		git branch --set-upstream-to upstream/master
 		git fetch --all --prune
 
 		popd # katello
 
 		popd # \$HOME
 	END_VAGRANT_USER
-
 }
 
 main

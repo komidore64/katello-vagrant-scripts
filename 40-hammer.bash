@@ -58,16 +58,19 @@ function main() {
 
 		pushd hammer-cli
 		git remote add fork git@github.com:komidore64/hammer-cli.git
+		git branch --set-upstream-to upstream/master
 		git fetch --all --prune
 		popd # hammer-cli
 
 		pushd hammer-cli-foreman
 		git remote add fork git@github.com:komidore64/hammer-cli-foreman.git
+		git branch --set-upstream-to upstream/master
 		git fetch --all --prune
 		popd # hammer-cli-foreman
 
 		pushd hammer-cli-katello
 		git remote add fork git@github.com:komidore64/hammer-cli-katello.git
+		git branch --set-upstream-to upstream/master
 		git fetch --all --prune
 		cat > Gemfile.local <<-END_GEMFILE_LOCAL
 			gem 'hammer_cli', :path => '../hammer-cli'
