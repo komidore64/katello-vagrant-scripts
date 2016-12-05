@@ -13,10 +13,10 @@ function main() {
 
 		rvm --force gemset empty
 		rm Gemfile.lock
-		echo "2.2.1" > .ruby-version
+		echo "2.3.0" > .ruby-version
 		echo "foretello" > .ruby-gemset
 		rvm gemset create foretello
-		rvm_is_not_a_shell_function=0 rvm use 2.2.1@foretello
+		rvm_is_not_a_shell_function=0 rvm use 2.3.0@foretello
 
 		cat > bundler.d/debug.local.rb <<-END_OF_DEBUG_LOCAL_RB
 			gem 'pry'

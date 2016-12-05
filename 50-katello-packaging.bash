@@ -4,7 +4,7 @@
 function main() {
 	su -l vagrant <<-END_VAGRANT_USER
 		cd # confirm where we are
-		rvm 2.2.1@global do gem install gem-compare
+		rvm 2.3.0@global do gem install gem-compare
 
 		git clone https://github.com/katello/katello-packaging.git -o upstream
 		pushd katello-packaging

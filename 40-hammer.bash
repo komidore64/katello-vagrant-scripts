@@ -84,16 +84,15 @@ function main() {
 			gem 'hammer_cli', :path => '../hammer-cli'
 			gem 'hammer_cli_foreman', :path => '../hammer-cli-foreman'
 		END_GEMFILE_LOCAL
-		echo "2.2.1" > .ruby-version
+		echo "2.3.0" > .ruby-version
 		echo "hammer" > .ruby-gemset
 		rvm gemset create hammer
-		rvm_is_not_a_shell_function=0 rvm use 2.2.1@hammer
+		rvm_is_not_a_shell_function=0 rvm use 2.3.0@hammer
 		bundle install
 		popd # hammer-cli-katello
 
 		popd # \$HOME
 	END_VAGRANT_USER
-
 }
 
 main
