@@ -7,7 +7,8 @@ function main() {
 
 		git clone https://github.com/theforeman/hammer-cli.git -o upstream
 		git clone https://github.com/theforeman/hammer-cli-foreman.git -o upstream
-		git clone http://github.com/katello/hammer-cli-katello.git -o upstream
+		git clone https://github.com/katello/hammer-cli-katello.git -o upstream
+		git clone https://github.com/katello/hammer-cli-import.git -o upstream
 
 		# hammer configs
 		mkdir -p \$HOME/.hammer/cli.modules.d
@@ -41,6 +42,10 @@ function main() {
 
 			# Mark translated strings with X characters (for developers)
 			#:mark_translated: false
+
+			# hammer-cli-import is a special child
+			:modules:
+			  - hammer_cli_import
 		END_CLI_CONFIG
 
 		cat > \$HOME/.hammer/cli.modules.d/foreman.yml <<-END_FOREMAN_YML
@@ -56,6 +61,11 @@ function main() {
 			  :enable_module: true
 		END_KATELLO_YML
 
+		cat > \$HOME/.hammer/cli.modules.d/import.yml <<-END_IMPORT_YML
+			:import:
+			  :enable_module: true
+		END_IMPORT_YML
+
 		pushd hammer-cli
 		git remote add fork git@github.com:komidore64/hammer-cli.git
 		git branch --set-upstream-to upstream/master
@@ -68,6 +78,12 @@ function main() {
 		git fetch --all --prune
 		popd # hammer-cli-foreman
 
+		pushd hammer-cli-import
+		git remote add fork git@github.com:komidore64/hammer-cli-import.git
+		git branch --set-upstream-to upstream/master
+		git fetch --all --prune
+		popd # hammer-cli-import
+
 		pushd hammer-cli-katello
 		git remote add fork git@github.com:komidore64/hammer-cli-katello.git
 		git branch --set-upstream-to upstream/master
@@ -75,6 +91,7 @@ function main() {
 		cat > Gemfile.local <<-END_GEMFILE_LOCAL
 			gem 'hammer_cli', :path => '../hammer-cli'
 			gem 'hammer_cli_foreman', :path => '../hammer-cli-foreman'
+			gem 'hammer_cli_import', :path => '../hammer-cli-import'
 		END_GEMFILE_LOCAL
 		echo "2.3.0" > .ruby-version
 		echo "hammer" > .ruby-gemset
