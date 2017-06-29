@@ -11,6 +11,7 @@ PACKAGES=(
 	vim
 	git
 	tig
+	tree
 	tmux
 	tito
 	koji
